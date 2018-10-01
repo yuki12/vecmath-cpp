@@ -89,6 +89,10 @@
 #  ifndef VM_USE_STD_NAMESPACE
 #    define VM_USE_STD_NAMESPACE
 #  endif
+#elif defined(__cplusplus)
+#  ifndef VM_USE_STD_NAMESPACE
+#    define VM_USE_STD_NAMESPACE
+#  endif
 #endif
 
 #ifdef VM_INCLUDE_NAMESPACE
@@ -122,6 +126,10 @@
 #  else
 #    define VM_IOSTREAM_STD VM_STD
 #  endif
+#elif defined(__cplusplus)
+#  define VM_MATH_STD VM_STD
+#  define VM_STRING_STD VM_STD
+#  define VM_IOSTREAM_STD VM_STD
 #else
 #  define VM_MATH_STD VM_STD
 #  define VM_STRING_STD VM_STD

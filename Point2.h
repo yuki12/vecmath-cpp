@@ -77,8 +77,8 @@ public:
       * @param  p1 the other point
       */
     T distanceSquared(const Point2& p1) const {
-        T dx = x - p1.x;
-        T dy = y - p1.y;
+        T dx = this->x - p1.x;
+        T dy = this->y - p1.y;
         return dx*dx + dy*dy;
     }
 
@@ -96,7 +96,7 @@ public:
       * @param p1 the other point
       */
     T distanceL1(const Point2& p1) const {
-        return VmUtil<T>::abs(x-p1.x) + VmUtil<T>::abs(y-p1.y);
+        return VmUtil<T>::abs(this->x-p1.x) + VmUtil<T>::abs(this->y-p1.y);
     }
 
     /**
@@ -105,7 +105,7 @@ public:
       * @param p1 the other point
       */
     T distanceLinf(const Point2& p1) const {
-        return VmUtil<T>::max(VmUtil<T>::abs(x-p1.x), VmUtil<T>::abs(y-p1.y));
+        return VmUtil<T>::max(VmUtil<T>::abs(this->x-p1.x), VmUtil<T>::abs(this->y-p1.y));
     }
 
     // copy constructor and operator = is made by complier

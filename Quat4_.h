@@ -118,10 +118,10 @@ public:
      * @param q1 the source vector
      */
     void conjugate(const Quat4& q1) {
-        x = -q1.x;
-        y = -q1.y;
-        z = -q1.z;
-        w = q1.w;
+        this->x = -q1.x;
+        this->y = -q1.y;
+        this->z = -q1.z;
+        this->w = q1.w;
     }
 
     /**
@@ -129,9 +129,9 @@ public:
      *  in place.
      */
     void conjugate() {
-        x = -x;
-        y = -y;
-        z = -z;
+        this->x = -this->x;
+        this->y = -this->y;
+        this->z = -this->z;
     }
 
     /**
@@ -170,7 +170,7 @@ public:
 
 protected:
     T norm() const {
-        return x*x + y*y + z*z + w*w;
+        return this->x*this->x + this->y*this->y + this->z*this->z + this->w*this->w;
     }
     void setFromMat(T m00, T m01, T m02,
 		       T m10, T m11, T m12,
@@ -184,10 +184,10 @@ public:
     void inverse(const Quat4& q1) {
         T n = q1.norm();
         // zero-div may occur.
-        x = -q1.x/n;
-        y = -q1.y/n;
-        z = -q1.z/n;
-        w = q1.w/n;
+        this->x = -q1.x/n;
+        this->y = -q1.y/n;
+        this->z = -q1.z/n;
+        this->w = q1.w/n;
     }
 
     /**
@@ -196,10 +196,10 @@ public:
     void inverse() {
         T n = norm();
         // zero-div may occur.
-        x = -x/n;
-        y = -y/n;
-        z = -z/n;
-        w /= n;
+        this->x = -this->x/n;
+        this->y = -this->y/n;
+        this->z = -this->z/n;
+        this->w /= n;
     }
 
     /**
@@ -210,10 +210,10 @@ public:
     void normalize(const Quat4& q1) {
         T n = VmUtil<T>::sqrt(q1.norm());
         // zero-div may occur.
-        x = q1.x/n;
-        y = q1.y/n;
-        z = q1.z/n;
-        w = q1.w/n;
+        this->x = q1.x/n;
+        this->y = q1.y/n;
+        this->z = q1.z/n;
+        this->w = q1.w/n;
     }
 
     /**
@@ -222,10 +222,10 @@ public:
     void normalize() {
         T n = VmUtil<T>::sqrt(norm());
         // zero-div may occur.
-        x /= n;
-        y /= n;
-        z /= n;
-        w /= n;
+        this->x /= n;
+        this->y /= n;
+        this->z /= n;
+        this->w /= n;
     }
 
 #if 0

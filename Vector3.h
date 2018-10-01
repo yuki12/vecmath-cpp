@@ -79,7 +79,7 @@ public:
     void cross(const Vector3& v1, const Vector3& v2) {
         // store on stack once for aliasing-safty
         // i.e. safe when a.cross(a, b)
-        set(
+        this->set(
             v1.y*v2.z - v1.z*v2.y,
             v1.z*v2.x - v1.x*v2.z,
             v1.x*v2.y - v1.y*v2.x
@@ -92,7 +92,7 @@ public:
       * @param v1 the un-normalized vector
       */
     void normalize(const Vector3& v1) {
-        set(v1);
+        this->set(v1);
         normalize();
     }
 
@@ -103,9 +103,9 @@ public:
         T d = length();
 
         // zero-div may occur.
-        x /= d;
-        y /= d;
-        z /= d;
+        this->x /= d;
+        this->y /= d;
+        this->z /= d;
     }
 
     /**
@@ -113,7 +113,7 @@ public:
       * @param  v1 the other vector
       */
     T dot(const Vector3& v1) const {
-        return x*v1.x + y*v1.y + z*v1.z;
+        return this->x*v1.x + this->y*v1.y + this->z*v1.z;
     }
 
 
@@ -122,7 +122,7 @@ public:
       * @return the squared length of this vector
       */
     T lengthSquared() const {
-        return x*x + y*y + z*z;
+        return this->x*this->x + this->y*this->y + this->z*this->z;
     }
 
     /**

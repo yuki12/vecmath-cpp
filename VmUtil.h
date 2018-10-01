@@ -38,6 +38,8 @@
 #    else
 #      include <iostream>
 #    endif
+#  elif defined(__cplusplus)
+#    include <iostream>
 #  else
 #    include <iostream.h>
 #  endif
@@ -52,9 +54,12 @@
 #             include <strstrea.h>
 #             define VM_TOSTRING strstream s; s << *this << ends; VM_STRING_STD::string str = s.str(); s.rdbuf()->freeze(0); return str;
 #           else
-#             include <strstream>
+#             include <strstream>
 #             define VM_TOSTRING VM_IOSTREAM_STD::strstream s; s << *this << VM_IOSTREAM_STD::ends; VM_STRING_STD::string str = s.str(); s.freeze(0); return str;
 #           endif
+#         elif defined(__cplusplus)
+#           include <sstream>
+#           define VM_TOSTRING VM_IOSTREAM_STD::stringstream s; s << *this; return s.str();
 #         else
 #           include <strstream.h>
 #           define VM_TOSTRING strstream s; s << *this << ends; VM_STRING_STD::string str = s.str(); s.freeze(0); return str;
